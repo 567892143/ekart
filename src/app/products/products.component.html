@@ -1,0 +1,36 @@
+<!-- products.component.html -->
+<div class="container mx-auto py-8">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold">Our Products</h1>
+    <div class="flex items-center">
+      <p class="mr-3">Cart</p>
+      <img src="assets/images/cart.png" alt="Cart Image" id="cartImage" (click)="goToCart()" class="h-11 cursor-pointer"/>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div *ngFor="let product of products" class="bg-gradient-to-r from-blue-300 to-blue-500 rounded-lg shadow-md overflow-hidden">
+      <img src="assets/{{ product.image }}" alt="{{ product.name }}" class="w-full h-40 object-cover object-center">
+      <div class="p-4 ">
+        <h2 class="text-lg font-semibold mb-2">{{ product.name }}</h2>
+        <p class="text-gray-600">Weight: {{ product.weight }}</p>
+        <p class="text-gray-600">Price: RS-{{ product.price }}</p>
+
+        <!-- Show quantity controls if the product is in the cart -->
+        <ng-container *ngIf="isProductInCart(product)">
+          <div class="flex mt-4">
+            <button class="bg-blue-500 text-white py-2 px-4 rounded-l hover:bg-blue-600" (click)="decreaseQuantity(product)">-</button>
+            <span class="bg-gray-200 py-2 px-4">{{ getProductQuantity(product) }}</span>
+            <button class="bg-blue-500 text-white py-2 px-4 rounded-r hover:bg-blue-600" (click)="increaseQuantity(product)">+</button>
+          </div>
+        </ng-container>
+
+        <!-- Add to Cart button -->
+        <button *ngIf="!isProductInCart(product)" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full" (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Go to Cart button -->
+  <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mt-8" (click)="goToCart()">Go to Cart</button>
+</div>

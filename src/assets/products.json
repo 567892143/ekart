@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Apple",
+      "image": "./images/product1.jpg",
+      "weight": "1kg",
+      "price": 100
+    },
+    {
+      "name": "Banana",
+      "image": "./images/product2.jpg",
+      "weight": "500g",
+      "price": 50
+    },
+    {
+      "name": "Black Grapes",
+      "image": "./images/product3.jpg",
+      "weight": "500g",
+      "price": 60
+    },
+    {
+      "name": "Oranges",
+      "image": "./images/product4.jpg",
+      "weight": "250g",
+      "price": 20
+    },
+    {
+      "name": "Strawberry",
+      "image": "./images/product5.jpg",
+      "weight": "200g",
+      "price": 200
+    },
+    {
+      "name": "grapes",
+      "image": "./images/product6.jpg",
+      "weight": "1kg",
+      "price": 80
+    },
+    {
+      "name": "watermelon",
+      "image": "./images/product7.jpg",
+      "weight": "2kg",
+      "price": 100
+    },
+    {
+      "name": "custard apple",
+      "image": "./images/product8.jpg",
+      "weight": "1kg",
+      "price": 80
+    }
+  ]
+  

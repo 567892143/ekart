@@ -1,0 +1,39 @@
+
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-8 text-center">Your Cart</h1>
+  
+    <div *ngIf="cart.length === 0" class="text-center">
+      Your cart is empty.
+    </div>
+  
+    <div *ngFor="let item of cart" class="bg-gray-200 p-4 mb-4">
+      <div class="flex justify-between">
+        <div>
+          <h2 class="text-lg font-semibold">{{ item.product.name }}</h2>
+          <p>Price: RS-{{ item.product.price }}</p>
+        </div>
+        <div class="flex items-center">
+          <button class="px-2 py-1 border border-gray-400 rounded-md mr-2" (click)="decreaseQuantity(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button class="px-2 py-1 border border-gray-400 rounded-md ml-2" (click)="increaseQuantity(item)">+</button>
+          <button class="px-2 py-1 ml-4 text-red-600" (click)="removeFromCart(item)">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1>Total price</h1>
+      <strong>RS-{{ total() }}</strong> 
+
+    </div>
+    <div *ngIf="cart.length !== 0">
+      <h1>Estimated Delivery Date</h1>
+      <p>{{ estimatedDeliveryDate() | date: 'mediumDate' }}</p>
+    </div>
+    <div>
+      <button class="font-bold bg-blue-500 hover:bg-blue-400 rounded-md shadow-md p-2">check out</button>
+    </div>
+    <div>
+      <button class="font-bold bg-green-500 hover:bg-green-400 rounded-md shadow-md p-2" (click)="nav()">catalogue page</button>
+    </div>
+  </div>
+  
